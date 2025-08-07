@@ -1,22 +1,45 @@
 /* Teen-friendly color scheme and modern styling */
 :root {
-    --primary-color: #6366f1;
-    --primary-dark: #4f46e5;
-    --success-color: #10b981;
-    --warning-color: #f59e0b;
-    --danger-color: #ef4444;
-    --info-color: #3b82f6;
-    --purple-color: #8b5cf6;
+    --primary-color: #ff6b6b;
+    --primary-dark: #ff5252;
+    --secondary-color: #4ecdc4;
+    --accent-color: #45b7d1;
+    --success-color: #96ceb4;
+    --warning-color: #ffeaa7;
+    --danger-color: #fd79a8;
+    --info-color: #74b9ff;
+    --purple-color: #a29bfe;
+    --pink-color: #fd79a8;
+    --mint-color: #00b894;
     --light-bg: #f8fafc;
-    --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    --border-radius: 1rem;
+    --card-shadow: 0 15px 35px rgba(255, 107, 107, 0.15);
+    --border-radius: 1.5rem;
+    --gradient-primary: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%);
+    --gradient-secondary: linear-gradient(135deg, #74b9ff 0%, #a29bfe 100%);
+    --gradient-accent: linear-gradient(135deg, #fd79a8 0%, #fdcb6e 100%);
 }
 
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: var(--gradient-primary);
     min-height: 100vh;
     background-attachment: fixed;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 20% 50%, rgba(255, 107, 107, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(78, 205, 196, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(116, 185, 255, 0.2) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
 }
 
 /* Navigation */
@@ -41,24 +64,31 @@ body {
     transition: all 0.3s ease;
     border: none !important;
     box-shadow: var(--card-shadow);
+    border-radius: var(--border-radius) !important;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(255, 107, 107, 0.2);
 }
 
 /* Form styling */
 .form-control {
-    border: 2px solid #e2e8f0;
+    border: 2px solid rgba(255, 107, 107, 0.2);
     transition: all 0.3s ease;
     font-size: 1.1rem;
+    border-radius: var(--border-radius);
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(5px);
 }
 
 .form-control:focus {
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 0.2rem rgba(99, 102, 241, 0.25);
+    box-shadow: 0 0 0 0.2rem rgba(255, 107, 107, 0.25);
     transform: scale(1.02);
+    background: rgba(255, 255, 255, 1);
 }
 
 /* Button styling */
@@ -67,52 +97,129 @@ body {
     transition: all 0.3s ease;
     border: none;
     text-transform: none;
+    border-radius: var(--border-radius);
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    background: var(--gradient-primary);
     padding: 0.75rem 2rem;
     font-size: 1.1rem;
+    color: white;
+    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
 }
 
 .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(255, 107, 107, 0.4);
+    background: var(--gradient-secondary);
+    color: white;
+}
+
+.btn-outline-primary {
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+}
+
+.btn-outline-primary:hover {
+    background: var(--primary-color);
+    color: white;
     transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
-    background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+    box-shadow: 0 10px 25px rgba(255, 107, 107, 0.3);
 }
 
 /* Safety tip cards */
 .safety-tip-card {
     transition: all 0.3s ease;
     background: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.safety-tip-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: inherit;
+    z-index: -1;
 }
 
 .safety-tip-card:hover {
-    transform: translateY(-8px) scale(1.02);
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .safety-icon {
     transition: all 0.3s ease;
 }
 
-.safety-tip-card:hover .safety-icon {
-    transform: scale(1.1);
+.safety-emoji {
+    font-size: 3rem;
+    transition: all 0.3s ease;
+    animation: float 3s ease-in-out infinite;
+}
+
+.safety-tip-card:hover .safety-emoji {
+    transform: scale(1.2) rotate(5deg);
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Hero illustration animation */
+.hero-illustration svg {
+    animation: pulse-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-glow {
+    from {
+        filter: drop-shadow(0 0 10px rgba(255, 107, 107, 0.3));
+    }
+    to {
+        filter: drop-shadow(0 0 20px rgba(78, 205, 196, 0.5));
+    }
 }
 
 /* Results styling */
 .results-safe {
-    background: linear-gradient(135deg, #d4edda, #c3e6cb);
+    background: linear-gradient(135deg, #96ceb4, #55efc4);
     border-left: 5px solid var(--success-color);
+    color: white;
 }
 
 .results-warning {
-    background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+    background: linear-gradient(135deg, #fdcb6e, #e17055);
     border-left: 5px solid var(--warning-color);
+    color: white;
 }
 
 .results-danger {
-    background: linear-gradient(135deg, #f8d7da, #f5c6cb);
+    background: linear-gradient(135deg, #fd79a8, #e84393);
     border-left: 5px solid var(--danger-color);
+    color: white;
+}
+
+.results-safe h4,
+.results-warning h4,
+.results-danger h4 {
+    color: white !important;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+.results-safe p,
+.results-warning p,
+.results-danger p {
+    color: white !important;
 }
 
 /* Map styling */

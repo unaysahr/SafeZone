@@ -107,11 +107,11 @@ class SafeZoneApp {
         const submitButton = document.querySelector('button[type="submit"]');
 
         if (isLoading) {
-            searchBtn.textContent = 'Searching...';
+            searchBtn.textContent = '🔍 Searching...';
             loadingSpinner.classList.remove('d-none');
             submitButton.disabled = true;
         } else {
-            searchBtn.textContent = 'Check Area';
+            searchBtn.textContent = '🔍 Check My Area';
             loadingSpinner.classList.add('d-none');
             submitButton.disabled = false;
         }
@@ -127,13 +127,13 @@ class SafeZoneApp {
         if (data.has_offenders) {
             resultClass = 'results-warning';
             iconClass = 'fas fa-exclamation-triangle text-warning';
-            titleText = 'Area Alert';
-            messageText = `Found ${data.offender_count} registered offender(s) in ZIP code ${data.zip_code}. Please review the safety information below and stay aware of your surroundings.`;
+            titleText = '⚠️ Heads Up!';
+            messageText = `Found ${data.offender_count} registered offender(s) in ZIP code ${data.zip_code}. Check out the safety tips below and stay aware! 💪`;
         } else {
             resultClass = 'results-safe';
             iconClass = 'fas fa-check-circle text-success';
-            titleText = 'Area Clear';
-            messageText = `No registered offenders found in ZIP code ${data.zip_code}. Remember to always stay vigilant and follow safety practices.`;
+            titleText = '✅ All Good!';
+            messageText = `No registered offenders found in ZIP code ${data.zip_code}. Keep following those safety practices! 🌟`;
         }
 
         resultsCard.className = `card border-0 shadow rounded-4 ${resultClass}`;

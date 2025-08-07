@@ -19,14 +19,19 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);">
         <div class="container">
-            <a class="navbar-brand fw-bold text-primary" href="#">
-                <i class="fas fa-shield-alt me-2"></i>SafeZone
+            <a class="navbar-brand fw-bold" href="#" style="color: #ff6b6b; font-size: 1.5rem;">
+                🛡️ SafeZone
             </a>
-            <div class="navbar-nav ms-auto">
-                <a class="nav-link" href="#faq">FAQ</a>
-                <a class="nav-link" href="#safety-tips">Safety Tips</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link fw-semibold" href="#faq" style="color: #4ecdc4;">❓ FAQ</a>
+                    <a class="nav-link fw-semibold" href="#safety-tips" style="color: #74b9ff;">💡 Safety Tips</a>
+                </div>
             </div>
         </div>
     </nav>
@@ -36,10 +41,27 @@
         <!-- Hero Section -->
         <div class="row justify-content-center mb-5">
             <div class="col-lg-8 text-center">
-                <h1 class="display-5 fw-bold text-primary mb-3">
-                    <i class="fas fa-map-marker-alt me-3"></i>Check Your Community
+                <!-- Hero Illustration -->
+                <div class="hero-illustration mb-4">
+                    <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="60" cy="60" r="55" fill="url(#heroGradient)" opacity="0.1"/>
+                        <circle cx="60" cy="60" r="45" fill="url(#heroGradient)" opacity="0.2"/>
+                        <circle cx="60" cy="60" r="35" fill="url(#heroGradient)" opacity="0.3"/>
+                        <path d="M60 25C45.088 25 33 37.088 33 52C33 70 60 95 60 95S87 70 87 52C87 37.088 74.912 25 60 25Z" fill="url(#heroGradient)"/>
+                        <circle cx="60" cy="52" r="12" fill="white"/>
+                        <path d="M55 52L58 55L65 48" stroke="#ff6b6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <defs>
+                            <linearGradient id="heroGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#ff6b6b"/>
+                                <stop offset="100%" style="stop-color:#4ecdc4"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <h1 class="display-5 fw-bold text-white mb-3" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.1);">
+                    🏡 Check Your Community
                 </h1>
-                <p class="lead text-muted">
+                <p class="lead text-white" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.1);">
                     Stay informed about your neighborhood's safety. Enter your ZIP code to check for registered offenders in your area.
                 </p>
                 
@@ -59,26 +81,34 @@
                     <div class="card-body p-4">
                         <form id="searchForm" class="needs-validation" novalidate>
                             <div class="mb-3">
-                                <label for="zipCode" class="form-label fw-semibold">
-                                    <i class="fas fa-location-dot me-2"></i>Enter ZIP Code
+                                <label for="zipCode" class="form-label fw-semibold" style="color: #333;">
+                                    📍 Enter Your ZIP Code
                                 </label>
-                                <input 
-                                    type="text" 
-                                    class="form-control form-control-lg rounded-3" 
-                                    id="zipCode" 
-                                    placeholder="e.g., 90210"
-                                    maxlength="5"
-                                    pattern="[0-9]{5}"
-                                    required
-                                >
+                                <div class="input-group input-group-lg">
+                                    <span class="input-group-text" style="background: var(--gradient-primary); border: none; color: white; border-radius: 1.5rem 0 0 1.5rem;">
+                                        🏠
+                                    </span>
+                                    <input 
+                                        type="text" 
+                                        class="form-control form-control-lg" 
+                                        id="zipCode" 
+                                        placeholder="e.g., 90210, 77001, 10001"
+                                        maxlength="5"
+                                        pattern="[0-9]{5}"
+                                        required
+                                        style="border-radius: 0 1.5rem 1.5rem 0; border-left: none;"
+                                    >
+                                </div>
                                 <div class="invalid-feedback">
                                     Please enter a valid 5-digit ZIP code.
                                 </div>
+                                <small class="form-text text-muted mt-1">
+                                    💡 Try these sample ZIP codes: 90210, 77001, 10001, or 12345
+                                </small>
                             </div>
                             
-                            <button type="submit" class="btn btn-primary btn-lg w-100 rounded-3">
-                                <i class="fas fa-search me-2"></i>
-                                <span id="searchBtnText">Check Area</span>
+                            <button type="submit" class="btn btn-primary btn-lg w-100">
+                                <span id="searchBtnText">🔍 Check My Area</span>
                                 <div class="spinner-border spinner-border-sm ms-2 d-none" id="loadingSpinner" role="status">
                                     <span class="visually-hidden">Loading...</span>
                                 </div>
@@ -135,8 +165,8 @@
         <!-- FAQ Section -->
         <div id="faq" class="row justify-content-center mb-5">
             <div class="col-lg-10">
-                <h2 class="text-center mb-4 fw-bold text-primary">
-                    <i class="fas fa-question-circle me-2"></i>Frequently Asked Questions
+                <h2 class="text-center mb-4 fw-bold text-white" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.1);">
+                    ❓ Got Questions? We've Got Answers!
                 </h2>
                 
                 <div class="accordion accordion-flush" id="faqAccordion">
@@ -198,79 +228,79 @@
         <!-- Safety Tips Section -->
         <div id="safety-tips" class="row justify-content-center mb-5">
             <div class="col-lg-10">
-                <h2 class="text-center mb-4 fw-bold text-primary">
-                    <i class="fas fa-lightbulb me-2"></i>Safety Tips
+                <h2 class="text-center mb-4 fw-bold text-white" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.1);">
+                    💡 Stay Safe Out There!
                 </h2>
                 
                 <div class="row g-4">
                     <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 border-0 shadow rounded-4 safety-tip-card">
+                        <div class="card h-100 border-0 shadow rounded-4 safety-tip-card" style="background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%);">
                             <div class="card-body text-center p-4">
                                 <div class="safety-icon mb-3">
-                                    <i class="fas fa-users fa-3x text-primary"></i>
+                                    <div class="safety-emoji">👥</div>
                                 </div>
-                                <h5 class="card-title fw-bold">Stay With Groups</h5>
-                                <p class="card-text">Travel with friends or family when possible, especially in unfamiliar areas or at night.</p>
+                                <h5 class="card-title fw-bold text-white">Stay With Groups</h5>
+                                <p class="card-text text-white">Travel with friends or family when possible, especially in unfamiliar areas or at night.</p>
                             </div>
                         </div>
                     </div>
                     
                     <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 border-0 shadow rounded-4 safety-tip-card">
+                        <div class="card h-100 border-0 shadow rounded-4 safety-tip-card" style="background: linear-gradient(135deg, #74b9ff 0%, #a29bfe 100%);">
                             <div class="card-body text-center p-4">
                                 <div class="safety-icon mb-3">
-                                    <i class="fas fa-eye fa-3x text-success"></i>
+                                    <div class="safety-emoji">👀</div>
                                 </div>
-                                <h5 class="card-title fw-bold">Stay Aware</h5>
-                                <p class="card-text">Keep your head up, avoid distractions like headphones, and trust your instincts about situations.</p>
+                                <h5 class="card-title fw-bold text-white">Stay Aware</h5>
+                                <p class="card-text text-white">Keep your head up, avoid distractions like headphones, and trust your instincts about situations.</p>
                             </div>
                         </div>
                     </div>
                     
                     <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 border-0 shadow rounded-4 safety-tip-card">
+                        <div class="card h-100 border-0 shadow rounded-4 safety-tip-card" style="background: linear-gradient(135deg, #fd79a8 0%, #fdcb6e 100%);">
                             <div class="card-body text-center p-4">
                                 <div class="safety-icon mb-3">
-                                    <i class="fas fa-phone fa-3x text-warning"></i>
+                                    <div class="safety-emoji">📱</div>
                                 </div>
-                                <h5 class="card-title fw-bold">Emergency Contacts</h5>
-                                <p class="card-text">Always have emergency contacts readily available and know how to contact local authorities.</p>
+                                <h5 class="card-title fw-bold text-white">Emergency Contacts</h5>
+                                <p class="card-text text-white">Always have emergency contacts readily available and know how to contact local authorities.</p>
                             </div>
                         </div>
                     </div>
                     
                     <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 border-0 shadow rounded-4 safety-tip-card">
+                        <div class="card h-100 border-0 shadow rounded-4 safety-tip-card" style="background: linear-gradient(135deg, #00b894 0%, #55efc4 100%);">
                             <div class="card-body text-center p-4">
                                 <div class="safety-icon mb-3">
-                                    <i class="fas fa-home fa-3x text-info"></i>
+                                    <div class="safety-emoji">🏠</div>
                                 </div>
-                                <h5 class="card-title fw-bold">Know Your Area</h5>
-                                <p class="card-text">Familiarize yourself with safe places, well-lit areas, and routes to and from your destinations.</p>
+                                <h5 class="card-title fw-bold text-white">Know Your Area</h5>
+                                <p class="card-text text-white">Familiarize yourself with safe places, well-lit areas, and routes to and from your destinations.</p>
                             </div>
                         </div>
                     </div>
                     
                     <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 border-0 shadow rounded-4 safety-tip-card">
+                        <div class="card h-100 border-0 shadow rounded-4 safety-tip-card" style="background: linear-gradient(135deg, #e17055 0%, #fab1a0 100%);">
                             <div class="card-body text-center p-4">
                                 <div class="safety-icon mb-3">
-                                    <i class="fas fa-comments fa-3x text-purple"></i>
+                                    <div class="safety-emoji">💬</div>
                                 </div>
-                                <h5 class="card-title fw-bold">Communicate</h5>
-                                <p class="card-text">Let trusted adults know where you're going and when you expect to return.</p>
+                                <h5 class="card-title fw-bold text-white">Communicate</h5>
+                                <p class="card-text text-white">Let trusted adults know where you're going and when you expect to return.</p>
                             </div>
                         </div>
                     </div>
                     
                     <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 border-0 shadow rounded-4 safety-tip-card">
+                        <div class="card h-100 border-0 shadow rounded-4 safety-tip-card" style="background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);">
                             <div class="card-body text-center p-4">
                                 <div class="safety-icon mb-3">
-                                    <i class="fas fa-shield-alt fa-3x text-danger"></i>
+                                    <div class="safety-emoji">🛡️</div>
                                 </div>
-                                <h5 class="card-title fw-bold">Trust Your Instincts</h5>
-                                <p class="card-text">If something doesn't feel right, remove yourself from the situation and seek help immediately.</p>
+                                <h5 class="card-title fw-bold text-white">Trust Your Instincts</h5>
+                                <p class="card-text text-white">If something doesn't feel right, remove yourself from the situation and seek help immediately.</p>
                             </div>
                         </div>
                     </div>
