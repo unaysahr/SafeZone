@@ -6,3 +6,9 @@ id = "4h9fwZV9M0kLuxn-9Jwce"
 uri = "file://SAFEZONE.md"
 type = "text"
 title = "SafeZone Documentation"
+
+[[outputs]]
+id = "lhQKsIR5idC6i6IUXcvfV"
+uri = "file://BIBLIOGRAPHY.md"
+type = "text"
+title = "SafeZone Bibliography"
