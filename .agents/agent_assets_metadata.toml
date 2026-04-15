@@ -30,3 +30,9 @@ id = "94TGqgaKZVU_VcQ8eAvmb"
 uri = "file://screenshots/safezone_faq.jpg"
 type = "image"
 title = "SafeZone - FAQ Section"
+
+[[outputs]]
+id = "TNMU7R6PANvjYP3jwaV73"
+uri = "file://screenshots/safezone_version1.jpg"
+type = "image"
+title = "SafeZone - Version 1 (Original Design)"
