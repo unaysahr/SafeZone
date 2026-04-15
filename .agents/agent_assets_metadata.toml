@@ -12,3 +12,21 @@ id = "lhQKsIR5idC6i6IUXcvfV"
 uri = "file://BIBLIOGRAPHY.md"
 type = "text"
 title = "SafeZone Bibliography"
+
+[[outputs]]
+id = "k_DinR6TctLIwq7Mf913b"
+uri = "file://screenshots/safezone_homepage.jpg"
+type = "image"
+title = "SafeZone - Homepage & Search"
+
+[[outputs]]
+id = "km2H5E7LhxnqGkfr4WYdH"
+uri = "file://screenshots/safezone_safety_tips.jpg"
+type = "image"
+title = "SafeZone - Safety Tips Section"
+
+[[outputs]]
+id = "94TGqgaKZVU_VcQ8eAvmb"
+uri = "file://screenshots/safezone_faq.jpg"
+type = "image"
+title = "SafeZone - FAQ Section"
