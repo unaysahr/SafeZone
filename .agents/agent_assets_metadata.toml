@@ -48,3 +48,9 @@ id = "pu8eUBjhNhIo6GEYZMdNA"
 uri = "file://SafeZone_Business_Canvas.pdf"
 type = "pdf"
 title = "SafeZone - Business Model Canvas (PDF)"
+
+[[outputs]]
+id = "DZxWMB-7F88WC3ernYx7s"
+uri = "file://SafeZone_SourceCode.zip"
+type = "unspecified"
+title = "SafeZone - Source Code (ZIP)"
