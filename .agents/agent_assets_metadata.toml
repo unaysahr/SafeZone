@@ -36,3 +36,9 @@ id = "TNMU7R6PANvjYP3jwaV73"
 uri = "file://screenshots/safezone_version1.jpg"
 type = "image"
 title = "SafeZone - Version 1 (Original Design)"
+
+[[outputs]]
+id = "nwBGvnM16rPbZmT8FwmL_"
+uri = "file://SOURCECODE.md"
+type = "text"
+title = "SafeZone - Complete Source Code"
