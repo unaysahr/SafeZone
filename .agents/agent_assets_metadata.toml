@@ -42,3 +42,9 @@ id = "nwBGvnM16rPbZmT8FwmL_"
 uri = "file://SOURCECODE.md"
 type = "text"
 title = "SafeZone - Complete Source Code"
+
+[[outputs]]
+id = "pu8eUBjhNhIo6GEYZMdNA"
+uri = "file://SafeZone_Business_Canvas.pdf"
+type = "pdf"
+title = "SafeZone - Business Model Canvas (PDF)"
