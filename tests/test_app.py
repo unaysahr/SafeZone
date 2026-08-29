@@ -70,8 +70,20 @@ def test_uncovered_area_hands_off_to_official_registry(client):
     assert body["success"] is True
     assert body["covered"] is False
     assert body["offenders"] == []
-    assert "nsopw.gov" in body["official_search_url"]
+    assert "nsopw.gov" in body["official_registry"]["url"]
     assert "Illinois" in body["message"]
+
+
+def test_california_result_carries_the_state_registry_and_its_caveat(client):
+    body = search(client, "90210").get_json()
+    assert "meganslaw.ca.gov" in body["official_registry"]["url"]
+    assert "incomplete" in body["official_registry"]["note"].lower()
+
+
+def test_uncovered_state_without_a_seeded_url_still_gets_a_link(client):
+    body = search(client, "97201").get_json()  # Oregon
+    assert body["official_registry"]["url"].startswith("https://")
+    assert body["official_registry"]["note"] is None
 
 
 def test_uncovered_response_never_claims_offenders(client):

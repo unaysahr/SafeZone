@@ -139,18 +139,32 @@ class SafeZoneApp {
             wrapper.appendChild(this.buildOffenderList(data.offenders));
         }
 
-        if (!data.covered && data.official_search_url) {
+        const registry = data.official_registry || {};
+
+        if (!data.covered && registry.url) {
             wrapper.appendChild(
-                this.officialLink(data.official_search_url, 'Search the Official Registry →')
+                this.officialLink(registry.url, `Search ${registry.name || 'the Official Registry'} →`)
             );
+        }
+
+        // A jurisdiction caveat changes how a result should be read - notably
+        // where a registry is incomplete by law, so "none listed" does not
+        // mean "none present". Show it on every result for that state,
+        // including the reassuring ones.
+        if (registry.note) {
+            const note = this.el('div', 'alert alert-warning border-0 rounded-3 mt-4 mb-0 text-start small');
+            note.setAttribute('role', 'note');
+            note.appendChild(this.el('strong', null, `About the ${registry.name} listing: `));
+            note.appendChild(document.createTextNode(registry.note));
+            wrapper.appendChild(note);
         }
 
         if (data.covered && data.source) {
             const src = this.el('p', 'text-muted small mt-4 mb-0');
             src.appendChild(document.createTextNode(`Source: ${data.attribution || data.source}. `));
-            if (data.official_search_url) {
-                const a = this.el('a', null, 'Verify on the official registry');
-                a.href = data.official_search_url;
+            if (registry.url) {
+                const a = this.el('a', null, `Verify on ${registry.name || 'the official registry'}`);
+                a.href = registry.url;
                 a.target = '_blank';
                 a.rel = 'noopener noreferrer';
                 src.appendChild(a);

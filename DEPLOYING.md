@@ -90,6 +90,35 @@ in `build_providers()`. Two rules:
 - Raise `ProviderError` on any failure. Never return a placeholder record.
 - Leave unknown fields as `None`. A missing address must stay missing.
 
+## Official registry links
+
+Uncovered areas link to the authoritative registry via
+`safezone/registries.py`. States with a verified entry link straight to their
+own registry; everything else falls back to a state-scoped NSOPW search, which
+covers every US jurisdiction and is always correct.
+
+Only add a URL you have actually opened and confirmed. A plausible-looking
+guess is worse than the fallback, because it sends someone looking for safety
+information to the wrong place.
+
+An entry can carry a `note` for a caveat that changes how a result should be
+read. California has one: state law lets some registrants be excluded from
+public disclosure, so an empty California result does **not** mean no
+registered offenders live in the area. The UI shows a note on every result for
+that state, including the reassuring ones.
+
+## Why California has no data provider
+
+California publishes no API and no bulk download - meganslaw.ca.gov is a
+search-only UI. It is also the most legally restricted state we surveyed:
+under [Penal Code 290.46](https://codes.findlaw.com/ca/penal-code/pen-sect-290-46/),
+authorised use is limited to protecting a person at risk, misuse carries civil
+penalties up to $25,000 plus damages and fees, and the state expressly
+disclaims responsibility for "secondary dissemination" - republication on a
+site like this one, where liability for errors moves to the operator.
+
+Linking out is the deliberate choice for California, not a gap to fill.
+
 ## Legal and safety notes
 
 Registry data is public record, but publishing it carries obligations:
