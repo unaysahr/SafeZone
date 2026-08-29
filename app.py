@@ -14,11 +14,8 @@ from collections import defaultdict, deque
 
 from flask import Flask, jsonify, render_template, request
 
-from safezone.providers import (
-    build_providers,
-    lookup_zip,
-    nsopw_search_url,
-)
+from safezone.providers import build_providers, lookup_zip
+from safezone.registries import official_registry
 from safezone.zip_codes import is_valid_zip, state_for_zip, state_name
 
 LOG_LEVEL = os.environ.get("LOG_LEVEL", "INFO").upper()
@@ -109,10 +106,13 @@ def create_app() -> Flask:
             logger.exception("Lookup failed for %s", zip_code)
             return jsonify({"success": False, "error": "The registry lookup failed. Please try again."}), 502
 
+        registry = official_registry(state)
+
         payload = result.to_dict()
         payload["success"] = True
         payload["state_name"] = state_name(state)
-        payload["official_search_url"] = nsopw_search_url(state)
+        payload["official_registry"] = registry.to_dict()
+        payload["official_search_url"] = registry.url  # retained for compatibility
 
         if result.degraded:
             payload["message"] = (
