@@ -1,5 +1,13 @@
 # SafeZone - Complete Source Code
 
+> **Note (updated):** SafeZone now reads from official public registries via a
+> provider layer (`safezone/providers/`). The `mock_data.py` module described
+> in sections below has been removed - it generated randomised offender records
+> for real ZIP codes, which could falsely associate real addresses with sex
+> offences. Sections referring to it describe the previous version.
+> See `DEPLOYING.md` for the current data-source setup.
+
+
 ## File Structure
 
 ```
