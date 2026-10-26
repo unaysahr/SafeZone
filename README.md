@@ -9,7 +9,9 @@ The idea came from traveling alone to New York for the first time and realizing 
 
 Features
 ZIP code lookup: Enter any US ZIP code to check for registered offenders in that area.
+
 Official sources only: SafeZone queries official public registries directly. Where a jurisdiction has no public data source, it links you to the official registry instead of showing a guess.
+
 Safety resources for teens:
 NSOPW: the National Sex Offender Public Website, for official nationwide registry searches
 RAINN: confidential support for survivors of sexual violence
@@ -17,12 +19,14 @@ RAINN: confidential support for survivors of sexual violence
 Tips on sharing your live location, saving emergency numbers, and finding safe public places
 Mobile-friendly: Check an area on the go.
 Privacy-first: No accounts and no personal data collected from users.
+
 How to use it
 Go to safe-zones.org.
 Enter the ZIP code of where you're going (a hotel, campus, or friend's house).
 Click Check My Area.
 Review the results, or follow the link to the official registry for your jurisdiction.
 Visit the resources section for safety tips and support links.
+
 Tech stack
 Frontend: HTML, CSS, JavaScript
 Backend/data: Python
