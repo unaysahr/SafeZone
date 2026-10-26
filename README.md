@@ -3,8 +3,7 @@ Live site: safe-zones.org
 
 SafeZone is a neighborhood-safety web app that helps teens and families understand their surroundings, especially in unfamiliar places. Enter a US ZIP code and SafeZone checks official public sex-offender registries for that area, so you can plan safer routes and make informed decisions.
 
-Built by Unaysah Ron. Congressional App Challenge special recognition · Technovation Girls quarterfinalist.
-
+Built by Unaysah Ron. 
 Why SafeZone?
 The idea came from traveling alone to New York for the first time and realizing there was no quick, teen-friendly way to tell whether an unfamiliar neighborhood was safe. Registry data is public under Megan's Law, but it's scattered across government sites that are hard to use on a phone. SafeZone makes that information simple, visual, and fast.
 
@@ -28,8 +27,8 @@ Tech stack
 Frontend: HTML, CSS, JavaScript
 Backend/data: Python
 Data sources: Official public sex-offender registries (Megan's Law data). When a licensed provider is enabled, the ZIP code is sent to that provider for lookup.
-Development: Built with AI-assisted development tools. All design, data, and safety decisions were made by the developer.
-<!-- Edit the stack above to match your real tools, hosting, and libraries. -->
+Development: Developed using Python for the backend, HTML, CSS, and JavaScript for the frontend, along with AI-assisted development tools. All design, data, and safety decisions were made by the developer.
+
 Running locally
 
 git clone https://github.com/<your-username>/safe-zones.git
